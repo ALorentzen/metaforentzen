@@ -16,21 +16,9 @@ sections:
           always_show_set_button: false
           previews: true
           sets:
-            image:
-              display: Image
+            image_box:
+              display: 'Image Box'
               fields:
-                -
-                  handle: title
-                  field:
-                    input_type: text
-                    antlers: false
-                    display: Title
-                    type: text
-                    icon: text
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: false
                 -
                   handle: image
                   field:
@@ -62,74 +50,66 @@ sections:
               display: Personalia
               fields:
                 -
-                  handle: information
+                  handle: name
                   field:
-                    fields:
-                      -
-                        handle: name
-                        field:
-                          input_type: text
-                          antlers: false
-                          display: Name
-                          type: text
-                          icon: text
-                          listable: hidden
-                          instructions_position: above
-                          visibility: visible
-                          always_save: false
-                      -
-                        handle: Occupation
-                        field:
-                          input_type: text
-                          antlers: false
-                          display: Occupation
-                          type: text
-                          icon: text
-                          listable: hidden
-                          instructions_position: above
-                          visibility: visible
-                          always_save: false
-                      -
-                        handle: age
-                        field:
-                          input_type: number
-                          antlers: false
-                          display: Age
-                          type: text
-                          icon: text
-                          listable: hidden
-                          instructions_position: above
-                          visibility: visible
-                          always_save: false
-                      -
-                        handle: email
-                        field:
-                          input_type: email
-                          antlers: false
-                          display: Email
-                          type: text
-                          icon: text
-                          listable: hidden
-                          instructions_position: above
-                          visibility: visible
-                          always_save: false
-                      -
-                        handle: location
-                        field:
-                          input_type: text
-                          antlers: false
-                          display: Location
-                          type: text
-                          icon: text
-                          listable: hidden
-                          instructions_position: above
-                          visibility: visible
-                          always_save: false
-                    mode: table
-                    reorderable: true
-                    display: Information
-                    type: grid
-                    icon: grid
+                    input_type: text
+                    antlers: false
+                    display: Name
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: occupation
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Occupation
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: yob
+                  field:
+                    mode: single
+                    time_enabled: false
+                    time_seconds_enabled: false
+                    full_width: false
+                    inline: false
+                    columns: 1
+                    rows: 1
+                    display: 'Year of birth'
+                    type: date
+                    icon: date
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: location
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Location
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: email
+                  field:
+                    input_type: email
+                    antlers: false
+                    display: Email
+                    type: text
+                    icon: text
                     listable: hidden
                     instructions_position: above
                     visibility: visible
