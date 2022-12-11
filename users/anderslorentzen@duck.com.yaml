@@ -2,3 +2,7 @@ name: 'Anders Lorentzen'
 super: true
 id: 733e613e-5f4f-4943-b04a-83cf5f969268
 password_hash: $2y$10$bduwsRlWVOxxu.x3EfcwOecJz8Wh/88Oi6m9fELlJP.E8mYkGecO.
+preferences:
+  assets:
+    assets:
+      per_page: 100

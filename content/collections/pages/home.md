@@ -1,16 +1,9 @@
 ---
-title: Home
-id: home
+id: f48820ea-8549-49e4-8614-40c6593b5f05
+blueprint: home
 template: home
-blueprint: pages
+title: Home
+updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
+updated_at: 1670765717
+background_image: portfolio/landscape/mr-min.jpg
 ---
-## Welcome to your new brand Statamic site!
-
-Not sure where to do next? Here are a few ideas, but feel free to explore in your own way, in your own time.
-
-- [Jump into the Control Panel](/cp) and edit this page or begin setting up your own collections and blueprints.
-- [Head to the docs](https://statamic.dev) and learn how Statamic works.
-- [Watch some Statamic videos](https://youtube.com/statamic) on YouTube.
-- [Join our Discord chat](https://statamic.com/discord) and meet thousands of other Statamic developers.
-- [Start a discussion](https://github.com/statamic/cms/discussions) and get answers to your questions.
-- [Star Statamic on Github](https://github.com/statamic/cms) if you enjoy using it!
