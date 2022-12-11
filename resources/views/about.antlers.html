@@ -1,0 +1,11 @@
+{{ content }}
+{{ if type == "text" }}
+    {{ text }}
+{{ elseif type=="image" }}
+{{ if !no_results }}
+    {{ title }}
+    <img src="{{ gilde:image }}" alt="{{ alt }}">
+    {{ description}}
+    {{ /if }}
+{{ /if }}
+{{ /content }}

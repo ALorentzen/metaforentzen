@@ -1,0 +1,6 @@
+<span class="uppercase text-2xl">{{ title }}</span>
+<div class="flex flex-row flex-wrap justify-center m-4 w-full h-80 text-white text-center text-xl text-ellipsis">
+    {{ media sort="title:asc" }}
+        {{ partial:image_card }}
+    {{ /media }}
+</div>

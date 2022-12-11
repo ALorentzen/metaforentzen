@@ -1,0 +1,20 @@
+  <ul class="inline-flex items-center justify-center mx-8 h-12">
+      {{ nav:breadcrumbs depth="2" }}
+          {{ if is_current }}
+              <li aria-current="page" class="h-full">
+                  <div class="flex items-center h-full">
+                      <a href="{{ url }}" class="text-sm font-medium">{{ title }}</a>
+                  </div>
+              </li>
+          {{ else }}
+              <li class="h-full">
+                  <div class="flex items-center h-full">
+                      <a href="{{ ur }}" class="text-sm font-medium">{{ title }}</a>
+                      {{ if !last }}
+                          {{ svg src="arrow_right" class="w-4 h-4 m-2" }}
+                      {{ /if }}
+                  </div>
+              </li>
+          {{ /if }}
+      {{ /nav:breadcrumbs }}
+  </ul>
