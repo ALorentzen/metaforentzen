@@ -1,11 +1,44 @@
-{{ content }}
-{{ if type == "text" }}
-    {{ text }}
-{{ elseif type=="image" }}
-{{ if !no_results }}
-    {{ title }}
-    <img src="{{ gilde:image }}" alt="{{ alt }}">
-    {{ description}}
-    {{ /if }}
-{{ /if }}
-{{ /content }}
+<div class="flex flex-col justify-center items-center w-full h-full my-36">
+    <span class="text-xl uppercase font-semibold m-5">{{ title }}</span>
+    <div class="w-3/5">
+        {{ content }}
+            {{ if type == "text" }}
+                {{ text }}
+            {{ elseif type == "image_box" }}
+            {{ if !no_results }}
+                <div class="my-4">
+                    {{ image }}
+                        <img src="{{ glide:url width='{{ width }}' height='{{ height }}' }}" alt='{{ alt }}' class="w-full h-full rounded-md">
+                        <span class="text-xs">{{ description }}</span>
+                    {{ /image }}
+                </div>
+            {{ /if }}
+            {{ elseif type == "personalia" }}
+            <div class="box-border overflow-hidden flex flex-row bg-cyan-900 rounded-md shadow-lg shadow-cyan-700 h-52">
+                <ul class="w-1/2 h-full p-4 space-y-4 leading-loose text-white">
+                    <li class="px-2">
+                        <span class="text-xs mx-2 font-semibold">Name:</span>
+                        <span class="text-xs">{{ name }}</span>
+                    </li>
+                    <li class="px-2">
+                        <span class="text-xs mx-2 font-semibold">Year of birth:</span>
+                        <span class="text-xs">{{ yob }}, ({{ yob | years_ago  }} years)</span></li>
+                    <li class="px-2">
+                        <span class="text-xs mx-2 font-semibold">Occupation:</span>
+                        <span class="text-xs">{{ occupation }}</span>
+                    </li>
+                    <li class="px-2">
+                        <span class="text-xs mx-2 font-semibold">Location:</span>
+                        <span class="text-xs">{{ location }}</span>
+                    </li>
+                </ul>
+                <ul class="flex justify-center items-center p-4 w-1/2 h-full bg-cyan-900 border-l-2 border-cyan-800">
+                    <li class="flex flex-row px-4 ">
+                        <a href="mailto:{{ email }}">{{ svg src="mail" class="w-12 h-12 hover:pointer" }}</a>
+                   </li>
+                </ul>
+            </div>
+            {{ /if }}
+        {{ /content }}
+    </div>
+</div>

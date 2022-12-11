@@ -1,22 +1,31 @@
 <div class="top-0 z-10 fixed flex-row w-full h-30 bg-slate-700">
     <div class="relative w-full h-20 flex justify-center">
-        <a href="{{ homepage }}" class="z-10 absolute w-28 h-auto flex justify-center">
+        <a href="{{ homepage }}" class="z-10 absolute w-1/5 h-auto flex justify-center">
             <img src="{{ logo:site_logo }}" alt="{{ alt }}" class="flex justify-center w-20 h-auto"/>
         </a>
-
-         <ul class="absolute w-full h-20 top-0 flex flex-row justify-end items-end">
+        <div class="w-full">
+         <ul class="flex flex-row absolute items-center w-full h-20 top-0 px-4">
+            <div class="w-1/2">
+                <li class="w-full">
+                    {{ if current_url == parent }}
+                        <a href="/">
+                    {{ else }}
+                        <a href="{{ parent }}">
+                    {{ /if }}
+                            {{ svg src="arrow_left" class="w-12 h-12 hover:fill-white" }}
+                        </a>
+                </li>
+            </div>
+            <div class="flex flex-row w-1/2 justify-end">
             {{ nav:header }}
                 {{ if icon == !no_results }}
-                    <li class="{{ if !last }}m-0 {{ else }} mr-6 {{ /if }}">
-                        <a href="{{ url }}"> {{ svg src="{{ icon }}" class="w-12 h-12 hover:fill-white" }} </a>
+                    <li class="{{ if !last }}m-0 {{ else }} mx-4{{ /if }}">
+                        <a href="{{ url }}">{{ svg src="{{ icon }}" class="w-12 h-12 hover:fill-white" }}</a>
                     </li>
                 {{ /if }}
             {{ /nav:header }}
+            </div>
         </ul>
-   </div>
-   {{ if !is_homepage }}
-        <div class="h-12 text-white flex flex-row justify-start items-center bg-slate-600">
-                {{ partial:partials/common/breadcrumbs }}
         </div>
-    {{ /if }}
+   </div>
 </div>
