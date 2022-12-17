@@ -10,6 +10,7 @@ media:
     description: 'A illustration of a wolvering with grafitti'
     image:
       - portfolio/pixelart/jerven-min.webp
+    date: '2020-03-04'
   -
     id: lbifzb7n
     title: 'Running Hank'
@@ -118,25 +119,50 @@ media:
     description: 'Low pixel viking'
     image:
       - portfolio/pixelart/viking.webp
+    date: '2022-12-04'
   -
     id: lbigfkog
     title: Letters
     description: 'Ibsen was known for writing letters'
     image:
       - portfolio/pixelart/letters.webp
+    date: '2022-12-10'
   -
     id: lbigg9s4
     title: Storytellers
     description: 'Funny take on Asbjornsen & Moe - Ekebergkongen'
     image:
       - portfolio/pixelart/Storytellers.webp
+    date: '2022-12-03'
   -
     id: lbigofa9
     title: Buck
     description: 'A rendition of a buck'
     image:
       - portfolio/pixelart/bukken.webp
+    date: '2021-01-08'
+  -
+    id: lblazovx
+    title: Four
+    description: 'The greatest four'
+    image:
+      - portfolio/pixelart/Four.webp
+    date: '2022-12-12'
+  -
+    id: lbpeikk1
+    title: Huldra
+    description: 'Inspired by old folk tale'
+    image:
+      - portfolio/pixelart/Huldra.webp
+    date: '2022-12-14'
+  -
+    id: lbr5b2t7
+    title: Dance
+    description: 'Grieg the Maestro'
+    image:
+      - portfolio/pixelart/Dance.webp
+    date: '2022-12-17'
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1670754558
+updated_at: 1671233598
 featured_image: portfolio/pixelart/viking.webp
 ---

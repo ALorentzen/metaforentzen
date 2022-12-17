@@ -1,5 +1,21 @@
-<div class="w-full h-auto bg-slate-600">
-    <img class="w-full h-full" src="{{ glide:background_image width="{{ width }}" height="{{ height }}" }}" alt="{{ alt }}" class="object-cover w-full h-full">
+<div class="flex flex-col justify-center items-center w-full h-auto py-20">
+    <h1 class="text-4xl uppercase">{{ news }}</h1>
+     {{ collection:portfolio limit="3" sort="date:asc"  }}
+        {{ get_content from="/portfolio/{ current_url }/{slug}" sort="date:asc" }}
+            {{ media sort="date:desc"  limit="1"}}
+                 {{ if date == !no_results }}
+                    {{ else }}
+                        <div class="box-border w-80 h-1/2 m-auto sm:m-0 p-4 rounded-sm ">
+                            {{ assets:image }}
+                                <a class="w-full rounded-md" href="{{ url }}">
+                                    <img loading="lazy" class=" shadow-cyan-400 hover:ease-in-out hover:shadow-md transition-shadow ease-in-out hover:shadow-cyan-400 object-cover h-auto w-full rounded-md" src="{{ glide:url }}" alt="{{ alt }}">
+                                </a>
+                            {{ /assets:image }}
+                        </div>
+                    {{ /if }}
+            {{ /media }}
+        {{ /get_content }}
+    {{ /collection:portfolio }}
 </div>
 
 

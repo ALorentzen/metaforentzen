@@ -4,5 +4,6 @@ blueprint: portfolio
 title: Portfolio
 template: portfolio
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1670748840
+updated_at: 1671117694
+featured_image: portfolio/characters/vikingrage2.webp
 ---
