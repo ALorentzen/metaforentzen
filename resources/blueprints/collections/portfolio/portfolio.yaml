@@ -80,6 +80,23 @@ sections:
                 instructions_position: above
                 visibility: visible
                 always_save: false
+            -
+              handle: date
+              field:
+                mode: single
+                time_enabled: false
+                time_seconds_enabled: false
+                full_width: false
+                inline: false
+                columns: 1
+                rows: 1
+                display: Dato
+                type: date
+                icon: date
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
           mode: stacked
           reorderable: true
           display: Media

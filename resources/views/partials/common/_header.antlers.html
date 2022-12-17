@@ -1,12 +1,9 @@
 <div class="top-0 z-10 fixed flex-row w-full h-30 bg-slate-700">
     <div class="relative w-full h-20 flex justify-center">
-        <a href="{{ homepage }}" class="z-10 absolute w-1/5 h-auto flex justify-center">
-            <img src="{{ logo:site_logo }}" alt="{{ alt }}" class="flex justify-center w-20 h-auto"/>
-        </a>
         <div class="w-full">
          <ul class="flex flex-row absolute items-center w-full h-20 top-0 px-4">
-            <div class="w-1/2">
-                <li class="w-full">
+            <div class="flex flex-row w-1/2">
+                <li class="w-min">
                     {{ if current_url == parent }}
                         <a href="/">
                     {{ else }}
@@ -16,11 +13,23 @@
                         </a>
                 </li>
             </div>
+            <div class="w-full h-full flex flex-col relative items-center justify-end">
+                <a href="{{ homepage }}" class="z-10 absolute w-full h-auto flex justify-center">
+                    <img src="{{ logo:site_logo }}" alt="{{ alt }}" class="flex justify-center w-20 h-auto"/>
+                </a>
+            {{ get_content from="/pages/{ current_url}" }}
+                {{ if current_url == !is_homepage }}
+                    <h1 class="z-10 flex h-min uppercase relative bottom-0 text-md text-white font-semibold bg-slate-700">{{ title }}</h1>
+                {{ /if }}
+            {{ /get_content}}
+            </div>
             <div class="flex flex-row w-1/2 justify-end">
             {{ nav:header }}
                 {{ if icon == !no_results }}
                     <li class="{{ if !last }}m-0 {{ else }} mx-4{{ /if }}">
-                        <a href="{{ url }}">{{ svg src="{{ icon }}" class="w-12 h-12 hover:fill-white" }}</a>
+                        <a href="{{ url }}">
+                            {{ svg src="{{ icon }}" class="w-12 h-12 hover:fill-white" }}
+                        </a>
                     </li>
                 {{ /if }}
             {{ /nav:header }}

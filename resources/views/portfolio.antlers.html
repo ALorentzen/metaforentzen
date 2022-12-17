@@ -1,16 +1,25 @@
-     <div class="w-full grid grid-cols-1 sm:grid-cols-3 place-items-center col-span-1 grid-flow-row">
+<div class="z-0">
+    <div class="flex w-full h-screen overflow-hidden relative justify-center items-center">
+             <a href="#featured" class="z-[1] flex justify-center absolute mb-20 self-end bottom-0">
+                {{ svg class="w-20 h-20 m-auto hover:fill-white" src="arrow_down"  fill="#1f2937" stroke="none"}}
+            </a>
+        <img src="{{ glide:featured_image }}" alt="{{ alt }}" class="w-[1000] h-auto rounded-sm object-contain" />
+    </div>
+     <div id="featured" class="w-full grid grid-cols-1 sm:grid-cols-3 py-32 place-items-center col-span-1 grid-flow-row">
         {{ collection:portfolio }}
             <div class="flex flex-col self-center items-center w-52 h-80 bg-slate-800 rounded-md m-4 shadow-sm shadow-slate-700 hover:w-56 hover:ease-in-out hover:shadow-lg hover:shadow-slate-800 transition-shadow">
                 <a class="w-52 h-80" href="{{ url }}" class="w-full text-center">
                     <div class="w-full h-80 grayscale hover:grayscale-0">
                         <div class="w-52 h-4/5 p-4 grayscale hover:grayscale-0">
-                            <img src="{{ glide:featured_image height = height }}" alt="{{ alt }}" class="img rounded-sm w-full h-full object-cover" />
+                            <img src="{{ glide:featured_image height="{{ height }}" }}" alt="{{ alt }}" class="img rounded-sm w-full h-full object-cover" />
                         </div>
                         <div class="w-52 h-auto flex justify-center">
-                            <span class="text-center">{{ title | safe_truncate:13:... }}</span>
+                            <span class="text-center uppercase">{{ title | safe_truncate:13:... }}</span>
                         </div>
                     </div>
                 </a>
             </div>
         {{ /collection:portfolio }}
+    </div>
+    {{ content }}
 </div>

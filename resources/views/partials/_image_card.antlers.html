@@ -1,4 +1,4 @@
-        <div class="flex flex-col self-center w-full h-full sm:w-52 sm:h-80 bg-slate-800 rounded-md m-4 shadow-sm shadow-slate-700">
+        <div class="flex flex-col self-center w-full h-full sm:w-52 sm:h-80 bg-slate-800 rounded-md m-4 shadow-slate-700 shadow-sm hover:ease-in-out hover:shadow-lg duration-300 hover:shadow-cyan-700 transition-shadow">
             <div class="w-1/2 h-full m-auto sm:m-0 sm:w-52 sm:h-3/5 p-4 grayscale hover:grayscale-0">
                 {{ assets:image }}
                     <a href="{{ url }}">
@@ -8,9 +8,10 @@
             </div>
             <div class="w-full h-full sm:w-52 sm:h-2/5">
                 <ul class="w-full h-full flex flex-col flex-end items-center overflow-hidden">
-                    <li class="uppercase">{{ title | safe_truncate:13: ... }}</li>
+                    <li class="uppercase text-sm">{{ title | safe_truncate:13: ... }}</li>
                     <hr class="border-2-white w-1/2 m-4">
-                    <li class="text-base px-4 text-ellipsis">{{ description | safe_truncate:40:...}}</li>
+                    <li class="text-xs px-4 text-ellipsis">{{ description | safe_truncate:40:...}}</li>
+                    <li class="flex justify-end items-end text-xs bottom-0 h-full">{{ date }}</li>
                 </ul>
             </div>
         </div>
