@@ -1,1 +1,12 @@
 title: Footer
+data:
+  footer_details:
+    -
+      id: lbzfyzh7
+      details: 'Anders Lorentzen'
+    -
+      id: lbzfz7a8
+      details: '2022'
+    -
+      id: lbzfzos9
+      details: 'This site is powered with Statamic'

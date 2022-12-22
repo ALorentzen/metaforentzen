@@ -4,7 +4,7 @@ blueprint: home
 template: home
 title: Home
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1671137300
-background_image: portfolio/landscape/mr-min.jpg
-news: Nyeste
+updated_at: 1671733317
+background_image: mr-min.svg
+news: Nyheter
 ---

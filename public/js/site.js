@@ -7,7 +7,38 @@
   \******************************/
 /***/ (() => {
 
+// // Require Vue
+// window.Vue = require("vue").default;
 
+// // Register Vue Components
+// Vue.component(
+//     "image-view-component",
+//     require("./components/ImageVue.vue").default
+// );
+
+// // Initialize Vue
+// const app = new Vue({
+//     el: "#app",
+// });
+
+// Statamic.booting(() => {
+//     Statamic.$components.register("ImageView", ImageView);
+// });
+
+// SLIDER
+
+var slidesContainer = document.getElementById("slides-container");
+var slide = document.querySelector(".slide");
+var prevButton = document.getElementById("slide-arrow-prev");
+var nextButton = document.getElementById("slide-arrow-next");
+nextButton.addEventListener("click", function () {
+  var slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft += slideWidth;
+});
+prevButton.addEventListener("click", function () {
+  var slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft -= slideWidth;
+});
 
 /***/ }),
 
