@@ -1,0 +1,29 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: footer_details
+        field:
+          fields:
+            -
+              handle: details
+              field:
+                input_type: text
+                antlers: false
+                display: Details
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+          mode: table
+          reorderable: true
+          display: 'Footer Details'
+          type: grid
+          icon: grid
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false

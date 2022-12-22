@@ -4,7 +4,7 @@ blueprint: page
 template: about
 title: About
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1670793531
+updated_at: 1671738694
 image_title: test
 content:
   -
@@ -28,6 +28,7 @@ content:
         age: 35
         Born: 1987
         yob: '1987-05-06'
+        instagram: 'https://www.instagram.com/metaforentzen/'
   -
     type: paragraph
 ---
