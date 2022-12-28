@@ -162,7 +162,15 @@ media:
     image:
       - portfolio/pixelart/Dance.webp
     date: '2022-12-17'
+  -
+    id: lc06r7b5
+    title: 'God Jul'
+    description: 'Merry Streaking Christmas!'
+    image:
+      - portfolio/pixelart/godjul.webp
+    date: '2022-12-23'
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1671233598
+updated_at: 1671780699
 featured_image: portfolio/pixelart/viking.webp
+watermark: images/watermark.webp
 ---

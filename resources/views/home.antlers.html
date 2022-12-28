@@ -6,28 +6,13 @@
             <h1 class="flex self-center w-full justify-center text-center text-2xl uppercase top-0">{{ news }}</h1>
         </div>
         <div class="flex flex-row justify-center self-center items-center w-full h-auto">
-            <button class="slide-arrow-prev w-10 h-10" id="slide-arrow-prev">
+            <button class="w-10 h-10" id="slide-arrow-prev">
                 {{ svg src="arrowPrev" }}
             </button>
-            <div class="box-border w-80 h-1/2 m-auto sm:m-0 p-4 rounded-sm ">
-                    {{# <ImageView>test</ImageView> #}}
-                <section class="slider-wrapper flex items-center relative">
-                    <ul class="slides-container" id="slides-container">
-                        {{ collection:portfolio sort="title:desc" }}
-                            <li class="h-full slide list-none">
-                                {{# <ImageView>test</ImageView> #}}
-                                {{ media sort="date:desc" limit="1" }}
-                                    {{ assets:image }}
-                                        <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy"
-                                        class="w-full h-full object-cover shadow-cyan-400 hover:ease-in-out hover:shadow-md transition-shadow ease-in-out hover:shadow-cyan-400 rounded-md">
-                                    {{ /assets:image }}
-                                {{ /media }}
-                            </li>
-                        {{ /collection:portfolio }}
-                    </ul>
-                </section>
+            <div class="box-border w-80 h-1/2 m-auto sm:m-0 p-4 rounded-sm">
+                {{ partial:partials/common/slider }}
             </div>
-            <button class="slide-arrow-next w-10 h-10" id="slide-arrow-next">
+            <button class="w-10 h-10" id="slide-arrow-next">
                 {{ svg src="arrowNext" }}
             </button>
         </div>

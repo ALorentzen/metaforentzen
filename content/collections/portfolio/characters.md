@@ -4,7 +4,7 @@ blueprint: portfolio
 title: Characters
 description: 'A bunch of characters I have been creating over the years'
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1670764601
+updated_at: 1671787058
 featured_image: 'portfolio/characters/kongen på haugen-min.webp'
 media:
   -
@@ -253,4 +253,66 @@ media:
     description: 'This would be me if I were practically gifted'
     image:
       - portfolio/characters/worker_2.webp
+  -
+    id: lc0aixy8
+    title: 'Troll Fishing'
+    description: 'From my series of trolls'
+    image:
+      - portfolio/characters/troll.webp
+    date: '2022-12-23'
+  -
+    id: lc0aknn1
+    title: 'Troll Eating'
+    description: 'From my series of trolls'
+    image:
+      - portfolio/characters/troll_Eating.webp
+    date: '2022-12-23'
+  -
+    id: lc0aldfq
+    title: 'Free bird'
+    description: 'From my series of trolls'
+    image:
+      - portfolio/characters/freebird_two.webp
+    date: '2022-12-23'
+  -
+    id: lc0amf2s
+    title: Daylight
+    description: 'From my series of trolls'
+    image:
+      - portfolio/characters/daylight.webp
+    date: '2022-12-23'
+  -
+    id: lc0an63x
+    title: Dovregubbe
+    description: 'From my series of trolls'
+    image:
+      - portfolio/characters/dovregubbe.webp
+    date: '2022-12-23'
+  -
+    id: lc0anqna
+    title: Dawn
+    description: 'From my series of trolls'
+    image:
+      - portfolio/characters/nature_troll.webp
+    date: '2022-12-23'
+  -
+    id: lc0aog0p
+    title: 'Candy lust'
+    description: 'Childhood addiction'
+    image:
+      - portfolio/characters/lustforcandy.webp
+    date: '2022-12-23'
+  -
+    id: lc0apyyx
+    title: 'Snowball war'
+    description: 'Bending the rules'
+    image:
+      - portfolio/characters/snowball.webp
+    date: '2022-12-23'
+  -
+    id: lc0atmnm
+    title: Skipper
+    description: 'Driking on the job'
+    image:
+      - portfolio/characters/skipper2.webp
 ---

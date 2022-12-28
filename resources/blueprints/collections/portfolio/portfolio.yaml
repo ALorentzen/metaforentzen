@@ -114,4 +114,20 @@ sections:
         field:
           type: slug
           localizable: true
+      -
+        handle: watermark
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: Watermark
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
 title: Portfolio
