@@ -1,35 +1,51 @@
-// // Require Vue
-// window.Vue = require("vue").default;
+//IMAGE PREVIEW
+const image = document.querySelector(".image");
+const imageButton = document.querySelector(".imgButton");
+const imageComponent = document.querySelector(".imageComponent");
+const imagePreview = document.querySelector(".imagePreview");
+const imagePreviewBg = document.querySelector(".imagePreviewBg");
 
-// // Register Vue Components
-// Vue.component(
-//     "image-view-component",
-//     require("./components/ImageVue.vue").default
-// );
 
-// // Initialize Vue
-// const app = new Vue({
-//     el: "#app",
-// });
+if (image !== null) {
+    (function () {
+        image.addEventListener("click", () => {
+            imagePreview.classList.toggle("hidden");
+        });
+            return;
+    })();
+}
 
-// Statamic.booting(() => {
-//     Statamic.$components.register("ImageView", ImageView);
-// });
+if (image !== null) {
+    (function () {
+        imageButton.addEventListener("click", () => {
+            imagePreview.classList.toggle("hidden");
+        });
+        return;
+    })();
+}
 
 // SLIDER
-
 const slidesContainer = document.getElementById("slides-container");
 const slide = document.querySelector(".slide");
 const prevButton = document.getElementById("slide-arrow-prev");
 const nextButton = document.getElementById("slide-arrow-next");
 
-nextButton.addEventListener("click", () => {
-    const slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft += slideWidth;
-});
+if (nextButton !== null) {
+    nextButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const slideWidth = slide.clientWidth;
+        slidesContainer.scrollLeft += slideWidth;
+        return;
+    });
+}
+if (prevButton !== null) {
+    prevButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const slideWidth = slide.clientWidth;
+        slidesContainer.scrollLeft -= slideWidth;
+        return;
+    });
+}
 
-prevButton.addEventListener("click", () => {
-    const slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft -= slideWidth;
-});
+
 

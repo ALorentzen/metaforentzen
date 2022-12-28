@@ -1,0 +1,15 @@
+  <section class="slider-wrapper flex items-center relative">
+                    <ul class="slides-container" id="slides-container">
+                        {{ collection:portfolio sort="title:desc" }}
+                            <li class="h-full slide list-none">
+                                {{# <ImageView>test</ImageView> #}}
+                                {{ media sort="date:desc" limit="1" }}
+                                    {{ assets:image }}
+                                        <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy"
+                                        class="w-full h-full object-cover shadow-cyan-400 hover:ease-in-out hover:shadow-md transition-shadow ease-in-out hover:shadow-cyan-400 rounded-md">
+                                    {{ /assets:image }}
+                                {{ /media }}
+                            </li>
+                        {{ /collection:portfolio }}
+                    </ul>
+                </section>

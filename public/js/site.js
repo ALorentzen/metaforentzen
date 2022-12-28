@@ -7,38 +7,50 @@
   \******************************/
 /***/ (() => {
 
-// // Require Vue
-// window.Vue = require("vue").default;
-
-// // Register Vue Components
-// Vue.component(
-//     "image-view-component",
-//     require("./components/ImageVue.vue").default
-// );
-
-// // Initialize Vue
-// const app = new Vue({
-//     el: "#app",
-// });
-
-// Statamic.booting(() => {
-//     Statamic.$components.register("ImageView", ImageView);
-// });
+//IMAGE PREVIEW
+var image = document.querySelector(".image");
+var imageButton = document.querySelector(".imgButton");
+var imageComponent = document.querySelector(".imageComponent");
+var imagePreview = document.querySelector(".imagePreview");
+var imagePreviewBg = document.querySelector(".imagePreviewBg");
+if (image !== null) {
+  (function () {
+    image.addEventListener("click", function () {
+      imagePreview.classList.toggle("hidden");
+    });
+    return;
+  })();
+}
+if (image !== null) {
+  (function () {
+    imageButton.addEventListener("click", function () {
+      imagePreview.classList.toggle("hidden");
+    });
+    return;
+  })();
+}
 
 // SLIDER
-
 var slidesContainer = document.getElementById("slides-container");
 var slide = document.querySelector(".slide");
 var prevButton = document.getElementById("slide-arrow-prev");
 var nextButton = document.getElementById("slide-arrow-next");
-nextButton.addEventListener("click", function () {
-  var slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft += slideWidth;
-});
-prevButton.addEventListener("click", function () {
-  var slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft -= slideWidth;
-});
+if (nextButton !== null) {
+  nextButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    var slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft += slideWidth;
+    return;
+  });
+}
+if (prevButton !== null) {
+  prevButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    var slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft -= slideWidth;
+    return;
+  });
+}
 
 /***/ }),
 
