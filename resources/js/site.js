@@ -5,7 +5,6 @@ const imageComponent = document.querySelector(".imageComponent");
 const imagePreview = document.querySelector(".imagePreview");
 const imagePreviewBg = document.querySelector(".imagePreviewBg");
 
-
 if (image !== null) {
     (function () {
         image.addEventListener("click", () => {
@@ -45,7 +44,14 @@ if (prevButton !== null) {
         slidesContainer.scrollLeft -= slideWidth;
         return;
     });
-}
+} else if (prevButton == 0 ){
+     prevButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const slideWidth = slide.clientWidth;
+        slidesContainer.scrollRight += slideWidth;
+        return;
+    });
+};
 
 
 

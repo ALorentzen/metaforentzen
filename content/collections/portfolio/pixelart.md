@@ -169,8 +169,22 @@ media:
     image:
       - portfolio/pixelart/godjul.webp
     date: '2022-12-23'
+  -
+    id: lcm0msij
+    title: Banana
+    description: 'Spoiled, which?'
+    image:
+      - portfolio/pixelart/banana.webp
+    date: '2022-12-30'
+  -
+    id: lcm0r8cn
+    title: King
+    description: 'A more detailed approach'
+    image:
+      - portfolio/pixelart/king.webp
+    date: '2023-01-07'
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1671780699
+updated_at: 1673100479
 featured_image: portfolio/pixelart/viking.webp
 watermark: images/watermark.webp
 ---
