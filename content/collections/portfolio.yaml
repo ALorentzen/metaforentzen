@@ -2,6 +2,8 @@ title: Portfolio
 template: portfolio/show
 layout: layout
 mount: 96eaebdc-efab-458f-96ad-b0b235cdda50
+taxonomies:
+  - portfolio
 revisions: false
 route: '/portfolio/{slug}'
 sort_dir: asc
@@ -12,3 +14,5 @@ preview_targets:
   -
     label: Entry
     url: '{permalink}'
+structure:
+  root: false

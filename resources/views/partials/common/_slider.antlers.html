@@ -1,13 +1,13 @@
-  <section class="slider-wrapper flex items-center relative">
-    <ul class="slides-container" id="slides-container">
+<section class="slider-wrapper flex items-center relative" aria-labelledby="sliderHeading">
+    <ul class="slides-container" id="slides-container" role="list">
         {{ collection:portfolio sort="title:desc" }}
-            <li class="h-full slide list-none">
+            <li class="h-full slide list-none" role="listitem">
                 {{# <ImageView>test</ImageView> #}}
                 {{ media sort="date:desc" limit="1" }}
-                    {{ assets:image }}
+                    {{ glide:image width="1920" height="1080" fit="crop_focal" }}
                         <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy"
-                        class="w-full h-full object-cover shadow-cyan-400 hover:ease-in-out hover:shadow-md transition-shadow ease-in-out hover:shadow-cyan-400 rounded-md">
-                    {{ /assets:image }}
+                        class="w-full h-full object-cover hover:ease-in-out transition-shadow ease-in-out hover:shadow-cyan-400 rounded-2xl">
+                    {{ /glide:image }}
                 {{ /media }}
             </li>
         {{ /collection:portfolio }}
