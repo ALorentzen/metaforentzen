@@ -1,5 +1,7 @@
 {
-    "name": "metaforentzen",
+    "author": {
+        "name": "Anders Lorentzen"
+    },
     "description": "A portfolio site made with Statamic",
     "keywords": [
         "statamic",
