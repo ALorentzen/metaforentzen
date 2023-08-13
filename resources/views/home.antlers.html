@@ -1,21 +1,26 @@
-    <img src="{{ glide:background_image }}" alt="{{ alt }}" class="w-full fixed h-full opacity-20 rounded-sm object-cover -z-10" />
-
-<div class="flex justify-center items-center w-full h-screen">
+<div class="flex justify-center items-center w-full h-screen bg-themePrimary-600">
     <div class="flex flex-col justify-center items-center w-full">
+        <!-- News Heading -->
         <div>
-            <h1 class="flex self-center w-full justify-center text-center text-2xl uppercase top-0">{{ news }}</h1>
+            <h1 class="flex self-center w-full justify-center text-center text-2xl uppercase top-0" aria-label="Latest News">{{ news }}</h1>
         </div>
-        <div class="flex flex-row justify-center self-center items-center w-full h-auto">
-            <button class="w-10 h-10" id="slide-arrow-prev">
-                {{ svg src="arrowPrev" }}
+
+        <!-- Slider Section -->
+        <div class="flex flex-row justify-center self-center items-center px-4 w-full h-auto" aria-label="Image slider">
+            <!-- Previous Slide Button -->
+            <button class="w-10 h-10" id="slide-arrow-prev" aria-label="Previous slide">
+                {{ svg src="arrowPrev" aria-hidden="true" }}
             </button>
-            <div class="box-border w-80 h-1/2 m-auto sm:m-0 p-4 rounded-sm">
+
+            <!-- Slider Content -->
+            <div class="box-border w-full h-1/2 m-auto sm:m-0 p-4 rounded-sm">
                 {{ partial:partials/common/slider }}
             </div>
-            <button class="w-10 h-10" id="slide-arrow-next">
-                {{ svg src="arrowNext" }}
+
+            <!-- Next Slide Button -->
+            <button class="w-10 h-10" id="slide-arrow-next" aria-label="Next slide">
+                {{ svg src="arrowNext" aria-hidden="true" }}
             </button>
         </div>
     </div>
 </div>
-

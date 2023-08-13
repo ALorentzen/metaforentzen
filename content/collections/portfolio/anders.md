@@ -4,7 +4,7 @@ blueprint: portfolio
 title: Anders
 description: 'Every image from the Anders series'
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1671233668
+updated_at: 1691925631
 image:
   -
     id: lbi2t806
@@ -58,7 +58,7 @@ media:
   -
     id: lbief4wk
     title: Chili
-    description: 'Oh, that''s when the chili hurts'
+    description: "Oh, that's when the chili hurts"
     image:
       - portfolio/anders/chili-min.webp
     date: '2019-10-15'
@@ -92,7 +92,7 @@ media:
     date: '2017-09-12'
   -
     id: lbiejipw
-    title: 'Flymo''n'
+    title: "Flymo'n"
     description: 'My fathers burial ... of his trusted lawnmower'
     image:
       - portfolio/anders/flymon-min.webp
@@ -100,7 +100,7 @@ media:
   -
     id: lbiekva0
     title: Haircut
-    description: 'Anders don''t let Anders gets Anders'' haircuts'
+    description: "Anders don't let Anders gets Anders' haircuts"
     image:
       - portfolio/anders/haircut-min.webp
     date: '2019-10-04'
@@ -191,7 +191,7 @@ media:
   -
     id: lbif5sid
     title: Outhouse
-    description: 'I didn''t handle the lack of modern facilities'
+    description: "I didn't handle the lack of modern facilities"
     image:
       - portfolio/anders/utedass.webp
     date: '2021-12-01'
@@ -210,4 +210,6 @@ media:
       - portfolio/anders/ship.webp
     date: '2018-05-15'
 featured_image: portfolio/anders/olabil.webp
+portfolio:
+  - anders
 ---
