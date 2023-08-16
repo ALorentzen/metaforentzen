@@ -7,58 +7,50 @@
   \******************************/
 /***/ (() => {
 
-//IMAGE PREVIEW
-var image = document.querySelector(".image");
-var imageButton = document.querySelector(".imgButton");
-var imageComponent = document.querySelector(".imageComponent");
-var imagePreview = document.querySelector(".imagePreview");
-var imagePreviewBg = document.querySelector(".imagePreviewBg");
-if (image !== null) {
-  (function () {
-    image.addEventListener("click", function () {
+// IMAGE PREVIEW
+var image = document.querySelector(".js-image");
+var imageButton = document.querySelector(".js-imgButton");
+var imagePreview = document.querySelector(".js-img-preview");
+var imagePreviewBg = document.querySelector(".js-img-preview-bg");
+document.addEventListener("DOMContentLoaded", function () {
+  function toggleImagePreview() {
+    if (imagePreviewBg.classList.contains('hidden') && imagePreview.classList.contains('hidden')) {
+      imagePreviewBg.classList.toggle("hidden");
       imagePreview.classList.toggle("hidden");
-    });
-    return;
-  })();
-}
-if (image !== null) {
-  (function () {
-    imageButton.addEventListener("click", function () {
-      imagePreview.classList.toggle("hidden");
-    });
-    return;
-  })();
-}
+    } else {
+      imagePreviewBg.classList.toggle("flex");
+      imagePreview.classList.toggle("flex");
+    }
+  }
+  if (image) {
+    image.addEventListener("click", toggleImagePreview);
+  }
+  if (imageButton) {
+    imageButton.addEventListener("click", toggleImagePreview);
+  }
 
-// SLIDER
-var slidesContainer = document.getElementById("slides-container");
-var slide = document.querySelector(".slide");
-var prevButton = document.getElementById("slide-arrow-prev");
-var nextButton = document.getElementById("slide-arrow-next");
-if (nextButton !== null) {
-  nextButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    var slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft += slideWidth;
+  // SLIDER
+  var slidesContainer = document.getElementById("slides-container");
+  var slide = document.querySelector(".slide");
+  var prevButton = document.getElementById("slide-arrow-prev");
+  var nextButton = document.getElementById("slide-arrow-next");
+  if (!slide || !slidesContainer) {
     return;
-  });
-}
-if (prevButton !== null) {
-  prevButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    var slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft -= slideWidth;
-    return;
-  });
-} else if (prevButton == 0) {
-  prevButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    var slideWidth = slide.clientWidth;
-    slidesContainer.scrollRight += slideWidth;
-    return;
-  });
-}
-;
+  }
+  var slideWidth = slide.clientWidth;
+  if (nextButton) {
+    nextButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      slidesContainer.scrollLeft += slideWidth;
+    });
+  }
+  if (prevButton) {
+    prevButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      slidesContainer.scrollLeft -= slideWidth;
+    });
+  }
+});
 
 /***/ }),
 

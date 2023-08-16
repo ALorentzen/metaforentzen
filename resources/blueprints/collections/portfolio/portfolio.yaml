@@ -97,6 +97,7 @@ sections:
                 instructions_position: above
                 visibility: visible
                 always_save: false
+                format: dd-mm-yyyy
           mode: stacked
           reorderable: true
           display: Media
@@ -130,4 +131,21 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - portfolio
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: portfolio
+        field:
+          type: terms
+          taxonomies:
+            - portfolio
+          display: Portfolio
+          mode: select
 title: Portfolio
