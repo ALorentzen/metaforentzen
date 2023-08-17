@@ -12,7 +12,7 @@ html {
   overflow: hidden;;
 }
 
-.slides-container {
+.slide-container {
   height: 20rem;
   width: 100%;
   display: flex;
@@ -45,12 +45,12 @@ html {
   opacity: 1;
 }
 
-#slide-arrow-prev {
+#js-slide-arrow-prev {
   padding-left: 0.25rem;
   border-radius: 0 2rem 2rem 0;
 }
 
-#slide-arrow-next {
+#js-slide-arrow-next {
   padding-left: 0.75rem;
   border-radius: 2rem 0 0 2rem;
 }
@@ -877,11 +877,6 @@ video {
     border-color: rgb(21 94 117 / var(--tw-border-opacity));
 }
 
-.bg-blue-400 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(96 165 250 / var(--tw-bg-opacity));
-}
-
 .bg-cyan-900 {
     --tw-bg-opacity: 1;
     background-color: rgb(22 78 99 / var(--tw-bg-opacity));
@@ -919,6 +914,10 @@ video {
 
 .bg-gradient-to-r {
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-none {
+    background-image: none;
 }
 
 .from-themePrimary-400 {
@@ -1063,6 +1062,11 @@ video {
 .shadow-slate-700 {
     --tw-shadow-color: #334155;
     --tw-shadow: var(--tw-shadow-colored);
+}
+
+.blur-none {
+    --tw-blur: blur(0);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .grayscale {

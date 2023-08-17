@@ -1,0 +1,24 @@
+{{# Image previewer #}}
+<div class="z-[1] hidden fixed w-screen left-0 right-0 top-0 h-screen">
+    <div class="z-[2] js-img-previewer hidden absolute w-screen h-screen top-0 left-0">
+        <div class="relative flex flex-col self-center justify-center items-center w-screen h-screen">
+            <button class="js-imgButton absolute top-0 right-12">
+                {{ svg src="cross" class="w-12 h-12" }}
+            </button>
+
+            <section class="slider-wrapper flex items-center relative m-auto">
+                <div class="slide-container w-full h-full flex items-center" id="slide-container">
+                    <button class="w-10 h-10" id="js-slide-arrow-prev">
+                        {{ svg src="arrowPrev" }}
+                    </button>
+                    {{ assets:image }}
+                        <img loading="proactive" class="w-1/2 h-auto rounded-sm object-contain" src="{{ glide:url }}" alt="{{ alt }}" />
+                    {{ /assets:image }}
+                    <button class="w-10 h-10" id="js-slide-arrow-next">
+                        {{ svg src="arrowNext" }}
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

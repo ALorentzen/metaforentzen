@@ -1,56 +1,102 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/js/previewer.js":
+/*!***********************************!*\
+  !*** ./resources/js/previewer.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ previewer)
+/* harmony export */ });
+function previewer() {
+  document.addEventListener("DOMContentLoaded", function () {
+    var imgs = document.querySelectorAll(".js-image"); // Select all images with the 'js-image' class
+    var imgButton = document.querySelector(".js-imgButton");
+    var imgPreview = document.querySelector(".js-img-previewer");
+    var previewBackground = document.querySelector(".z-[1]");
+    function toggleClass(element) {
+      for (var _len = arguments.length, classNames = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        classNames[_key - 1] = arguments[_key];
+      }
+      classNames.forEach(function (className) {
+        element === null || element === void 0 ? void 0 : element.classList.toggle(className);
+      });
+    }
+    function toggleImgPreview() {
+      toggleClass(imgPreview, "hidden", "flex");
+      toggleClass(previewBackground, "hidden");
+    }
+    imgs.forEach(function (imgElement) {
+      imgElement.addEventListener("click", function () {
+        toggleImgPreview();
+      });
+    });
+    imgButton === null || imgButton === void 0 ? void 0 : imgButton.addEventListener("click", toggleImgPreview);
+  });
+}
+;
+
+/***/ }),
 
 /***/ "./resources/js/site.js":
 /*!******************************!*\
   !*** ./resources/js/site.js ***!
   \******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// IMAGE PREVIEW
-var image = document.querySelector(".js-image");
-var imageButton = document.querySelector(".js-imgButton");
-var imagePreview = document.querySelector(".js-img-preview");
-var imagePreviewBg = document.querySelector(".js-img-preview-bg");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./resources/js/slider.js");
+/* harmony import */ var _previewer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./previewer */ "./resources/js/previewer.js");
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  function toggleImagePreview() {
-    if (imagePreviewBg.classList.contains('hidden') && imagePreview.classList.contains('hidden')) {
-      imagePreviewBg.classList.toggle("hidden");
-      imagePreview.classList.toggle("hidden");
-    } else {
-      imagePreviewBg.classList.toggle("flex");
-      imagePreview.classList.toggle("flex");
-    }
-  }
-  if (image) {
-    image.addEventListener("click", toggleImagePreview);
-  }
-  if (imageButton) {
-    imageButton.addEventListener("click", toggleImagePreview);
-  }
-
-  // SLIDER
-  var slidesContainer = document.getElementById("slides-container");
-  var slide = document.querySelector(".slide");
-  var prevButton = document.getElementById("slide-arrow-prev");
-  var nextButton = document.getElementById("slide-arrow-next");
-  if (!slide || !slidesContainer) {
-    return;
-  }
-  var slideWidth = slide.clientWidth;
-  if (nextButton) {
-    nextButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      slidesContainer.scrollLeft += slideWidth;
-    });
-  }
-  if (prevButton) {
-    prevButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      slidesContainer.scrollLeft -= slideWidth;
-    });
-  }
+  (0,_slider__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  (0,_previewer__WEBPACK_IMPORTED_MODULE_1__["default"])();
 });
+
+/***/ }),
+
+/***/ "./resources/js/slider.js":
+/*!********************************!*\
+  !*** ./resources/js/slider.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ slider)
+/* harmony export */ });
+// slider.js
+function slider() {
+  var slideContainer = document.querySelector(".slide-container");
+  var slidePrevBtn = document.getElementById("js-slide-arrow-prev");
+  var slideNextBtn = document.getElementById("js-slide-arrow-next");
+  var slides = document.querySelectorAll(".slide-container img"); // Select all images inside the slide-container
+
+  function showSlide(index) {
+    slides.forEach(function (slide, i) {
+      slide.style.display = i === index ? "block" : "none";
+    });
+  }
+  var currentSlide = 0;
+  if (slideContainer) {
+    var scrollSlide = function scrollSlide(direction) {
+      return function (e) {
+        e.preventDefault();
+        currentSlide += direction;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+        if (currentSlide >= slides.length) currentSlide = 0;
+        showSlide(currentSlide);
+      };
+    };
+    slideNextBtn === null || slideNextBtn === void 0 ? void 0 : slideNextBtn.addEventListener("click", scrollSlide(1));
+    slidePrevBtn === null || slidePrevBtn === void 0 ? void 0 : slidePrevBtn.addEventListener("click", scrollSlide(-1));
+  }
+}
 
 /***/ }),
 
@@ -60,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -126,6 +171,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	

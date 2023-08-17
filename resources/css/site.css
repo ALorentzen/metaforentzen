@@ -13,7 +13,7 @@ html {
   overflow: hidden;;
 }
 
-.slides-container {
+.slide-container {
   height: 20rem;
   width: 100%;
   display: flex;
@@ -46,12 +46,12 @@ html {
   opacity: 1;
 }
 
-#slide-arrow-prev {
+#js-slide-arrow-prev {
   padding-left: 0.25rem;
   border-radius: 0 2rem 2rem 0;
 }
 
-#slide-arrow-next {
+#js-slide-arrow-next {
   padding-left: 0.75rem;
   border-radius: 2rem 0 0 2rem;
 }
