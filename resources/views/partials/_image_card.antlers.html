@@ -1,43 +1,45 @@
-    <div class="z-10 imagePreview hidden absolute w-screen h-screen top-0 left-0">
-        <div class="imagePreviewBg fixed m-0 w-screen h-screen bg-blue-500">
-        </div>
-        <div class="flex flex-col self-center justify-center items-center m-auto w-screen h-screen fixed">
-            <button class="imgButton absolute top-0 right-12">{{ svg src="cross" class="w-12 h-12"}}</button>
-                <section class="slider-wrapper flex items-center relative">
-                    <div class="slides-container" id="slides-container">
-                        <div class="w-full h-full slide flex flex-row items-center">
-                            <button class="w-10 h-10" id="slide-arrow-prev">
-                                {{ svg src="arrowPrev" }}
-                            </button>
-                                {{ assets:image }}
-                                    <img loading="proactive" class="w-1/2 h-auto rounded-sm object-contain"
-                                        src="{{ glide:url }}" alt="{{ alt }}">
-                                {{ /assets:image }}
-                            <button class="w-10 h-10" id="slide-arrow-next">
-                                {{ svg src="arrowNext" }}
-                            </button>
-                        </div>
-                    </div>
-                </section>
-        </div>
+<!-- JS PREVIEWER -->
+<div role="dialog" aria-modal="true" aria-labelledby="Label" class="hidden fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden js-previewer">
+    <div role="presentation" class="absolute top-0 left-0 right-0 w-full h-screen bg-black blur-lg opacity-90"></div>
+    <div class="grid grid-cols-3 py-12 relative m-auto overscroll-none">
+        <button aria-label="Exit previewer" class="flex justify-end col-start-3 place-items-end px-12 js-close-btn">
+            {{ svg src="cross" class="w-12 h-12" aria-hidden="true" }}
+        </button>
+
+        <section aria-label="Image preview" class="flex items-center relative max-w-7xl h-max col-start-2 js-image">
+
+            <div class="flex justify-center items-center w-full h-max py-8">
+                <button aria-label="" class="w-10 h-10">
+                    {{ svg src="arrowPrev" aria-hidden="true" }}
+                </button>
+                {{ glide :src="featured_image" width="full" height="full" }}
+                    <img loading="proactive" src="{{ url }}" alt="{{ alt }}" class="h-auto rounded-sm object-cover" />
+                {{ /glide }}
+                <button aria-label="" class="w-10 h-10">
+                    {{ svg src="arrowNext" aria-hidden="true" }}
+                </button>
+            </div>
+
+        </section>
     </div>
-    <div class="image flex flex-col self-center w-full h-full sm:w-52 sm:h-80 bg-slate-800 rounded-md m-4 shadow-slate-700 shadow-sm hover:ease-in-out hover:shadow-lg duration-300 hover:shadow-cyan-700 transition-shadow">
-        <div class="w-1/2 h-full m-auto sm:m-0 sm:w-52 sm:h-3/5 p-4 grayscale hover:grayscale-0">
-            {{ assets:image }}
-                <img loading="proactive" class="object-cover h-full w-full rounded-sm"
-                    src="{{ glide:url }}" alt="{{ alt }}">
-            {{ /assets:image }}
-        </div>
+</div>
 
-        <div class="w-full h-full sm:w-52 sm:h-2/5">
-            <ul class="w-full h-full flex flex-col flex-end items-center overflow-hidden">
-                <li class="uppercase text-sm">{{ title | safe_truncate:13:... }}</li>
-                <hr class="border-2-white w-1/2 m-4">
-                <li class="text-xs px-4 text-ellipsis">{{ description | safe_truncate:40:... }}</li>
-                <li class="flex justify-end items-end text-xs bottom-0 h-full">{{ date }}</li>
-            </ul>
-        </div>
+<!-- IMAGE CARD -->
+<div class="flex flex-col self-center w-full h-full sm:w-52 sm:h-80 bg-slate-800 rounded-md m-4 shadow-slate-700 shadow-sm hover:ease-in-out hover:shadow-lg duration-300 hover:shadow-cyan-700 transition-shadow js-image">
+    <div class="p-4 w-full h-auto grayscale hover:grayscale-0">
+        {{ glide :src="featured_image" width="auto" height="auto" }}
+            <img class="h-auto rounded-sm object-cover" loading="proactive" src="{{ url }}" alt="{{ alt }}" />
+        {{ /glide }}
     </div>
-
-
-
+    <div class="w-full h-full sm:w-52 sm:h-2/5">
+        <ul class="flex flex-col items-center w-full h-full overflow-hidden">
+            <li class="text-sm uppercase">
+                {{ title | safe_truncate:13:... }}
+            </li>
+            <hr class="border-2-white w-1/2 m-4" aria-hidden="true" />
+            <li class="bottom-0 h-full flex justify-end items-end text-xs">
+                {{ date }}
+            </li>
+        </ul>
+    </div>
+</div>

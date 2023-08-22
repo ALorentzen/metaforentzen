@@ -1,0 +1,4 @@
+{
+    "prettier.formatOnSave": true,
+    "prettier.antlers.printWidth": 300
+}

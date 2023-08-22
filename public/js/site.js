@@ -7,58 +7,57 @@
   \******************************/
 /***/ (() => {
 
-//IMAGE PREVIEW
-var image = document.querySelector(".image");
-var imageButton = document.querySelector(".imgButton");
-var imageComponent = document.querySelector(".imageComponent");
-var imagePreview = document.querySelector(".imagePreview");
-var imagePreviewBg = document.querySelector(".imagePreviewBg");
-if (image !== null) {
-  (function () {
-    image.addEventListener("click", function () {
-      imagePreview.classList.toggle("hidden");
-    });
-    return;
-  })();
-}
-if (image !== null) {
-  (function () {
-    imageButton.addEventListener("click", function () {
-      imagePreview.classList.toggle("hidden");
-    });
-    return;
-  })();
-}
+var images = document.querySelectorAll('.js-image');
+var previewer = document.querySelector('.js-previewer');
+var closeButtons = document.querySelectorAll('.js-close-btn');
+images.forEach(function (image) {
+  image.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (previewer.classList.contains('hidden')) {
+      previewer.classList.toggle('hidden');
+    } else {
+      previewer.classList.toggle('flex');
+      closeButtons[0].focus();
+    }
+  });
+});
+closeButtons.forEach(function (closeBtn) {
+  closeBtn.addEventListener('click', function (e) {
+    if (!previewer.classList.contains('hidden')) {
+      previewer.classList.toggle('hidden');
+    } else {
+      previewer.classList.toggle('flex');
+    }
+  });
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (!previewer.classList.contains('hidden')) {
+        previewer.classList.toggle('hidden');
+      } else {
+        previewer.classList.toggle('flex');
+      }
+    }
+  });
+});
 
-// SLIDER
-var slidesContainer = document.getElementById("slides-container");
-var slide = document.querySelector(".slide");
-var prevButton = document.getElementById("slide-arrow-prev");
-var nextButton = document.getElementById("slide-arrow-next");
-if (nextButton !== null) {
-  nextButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    var slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft += slideWidth;
-    return;
-  });
-}
-if (prevButton !== null) {
-  prevButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    var slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft -= slideWidth;
-    return;
-  });
-} else if (prevButton == 0) {
-  prevButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    var slideWidth = slide.clientWidth;
-    slidesContainer.scrollRight += slideWidth;
-    return;
-  });
-}
-;
+// // Event listeners for slider buttons
+// if (nextButton !== null && prevButton !== null) {
+//     nextButton.addEventListener("click", (e) => {
+//         e.preventDefault();
+//         navigateImages(1);
+//     });
+
+//     prevButton.addEventListener("click", (e) => {
+//         e.preventDefault();
+//         navigateImages(-1);
+//     });
+// }
+
+// // Function to navigate through images
+// function navigateImages(offset) {
+//     currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
+//     updateImagePreview(currentImageIndex);
+// }
 
 /***/ }),
 

@@ -1,21 +1,24 @@
-<div class="flex flex-col gap-5 py-20">
-  {{ partial:partials/portfolio_taxonomy }}
-</div>
+<section class="flex flex-col gap-5 py-20">
+    {{ partial:partials/portfolio_taxonomy }}
+</section>
 
-<div id="featured" class="w-full grid grid-cols-1 sm:grid-cols-3 py-32 place-items-center col-span-1 grid-flow-row">
-  {{ collection:portfolio }}
-    <div class="flex flex-col self-center items-center w-52 h-80 bg-slate-800 rounded-md m-4 shadow-sm shadow-slate-700 hover:w-56 hover:ease-in-out hover:shadow-lg hover:shadow-slate-800 transition-shadow">
-      <a class="w-52 h-80" href="{{ url }}" class="w-full text-center">
-        <div class="w-full h-80 grayscale hover:grayscale-0">
-          <div class="w-52 h-4/5 p-4 grayscale hover:grayscale-0">
-            <img src="{{ glide:featured_image height=" {{height}}" }}" alt="{{ alt }}" class="img rounded-sm w-full h-full object-cover" />
-          </div>
-          <div class="w-52 h-auto flex justify-center">
-            <span class="text-center uppercase">{{ title | safe_truncate:13:... }}</span>
-          </div>
-        </div>
-      </a>
-    </div>
-  {{ /collection:portfolio }}
-</div>
+<section id="featured" class="w-full grid grid-cols-1 sm:grid-cols-3 py-32 place-items-center col-span-1 grid-flow-row">
+    {{ collection:portfolio }}
+    <article href="foo" class="flex flex-col self-center items-center w-52 h-80 bg-slate-800 rounded-md m-4 shadow-sm shadow-slate-700 hover:w-56 hover:ease-in-out hover:shadow-lg hover:shadow-slate-800 transition-shadow">
+        <a href="{{ url }}" class="w-full text-center w-52 h-80">
+            <div class="w-full h-80 grayscale hover:grayscale-0">
+                <div class="w-52 h-4/5 p-4 grayscale hover:grayscale-0">
+                    <img src="{{ glide:featured_image height=" {{height}}" }}" alt="{{ alt }}" class="img rounded-sm w-full h-fulL object-cover" />
+                </div>
+                <div class="w-52 h-auto flex justify-center">
+                    <span class="text-center uppercase"></span>
+                    {{ title | safe_truncate:13:... }}
+                    </span>
+                </div>
+            </div>
+        </a>
+    </article>
+
+    {{ /collection:portfolio }}
+</section>
 {{ content }}

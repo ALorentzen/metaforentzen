@@ -40,3 +40,5 @@ if (mix.inProduction()) {
 //     require('tailwindcss/nesting'),
 //     require('tailwindcss'),
 // ])
+
+mix.disableNotifications();

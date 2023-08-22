@@ -1,14 +1,28 @@
-<div class="flex justify-center items-center w-full h-screen bg-themePrimary-600">
+<div
+    class="flex justify-center items-center w-full h-screen bg-themePrimary-600"
+>
     <div class="flex flex-col justify-center items-center w-full">
         <!-- News Heading -->
-        <div>
-            <h1 class="flex self-center w-full justify-center text-center text-2xl uppercase top-0" aria-label="Latest News">{{ news }}</h1>
-        </div>
+        <header>
+            <h1
+                class="flex self-center w-full justify-center text-center text-2xl uppercase top-0"
+                aria-label="Latest News"
+            >
+                {{ news }}
+            </h1>
+        </header>
 
         <!-- Slider Section -->
-        <div class="flex flex-row justify-center self-center items-center px-4 w-full h-auto" aria-label="Image slider">
+        <section
+            aria-label="Image slider"
+            class="flex flex-row justify-center self-center items-center px-4 w-full h-auto"
+        >
             <!-- Previous Slide Button -->
-            <button class="w-10 h-10" id="slide-arrow-prev" aria-label="Previous slide">
+            <button
+                class="w-10 h-10"
+                id="slide-arrow-prev"
+                aria-label="Previous slide"
+            >
                 {{ svg src="arrowPrev" aria-hidden="true" }}
             </button>
 
@@ -18,9 +32,13 @@
             </div>
 
             <!-- Next Slide Button -->
-            <button class="w-10 h-10" id="slide-arrow-next" aria-label="Next slide">
+            <button
+                class="w-10 h-10"
+                id="slide-arrow-next"
+                aria-label="Next slide"
+            >
                 {{ svg src="arrowNext" aria-hidden="true" }}
             </button>
-        </div>
+        </section>
     </div>
 </div>

@@ -7,7 +7,9 @@
         <div class="w-full h-80 grayscale hover:grayscale-0">
           <div class="w-full h-4/5 p-4 grayscale hover:grayscale-0">
             {{ entries }}
-              <img src="{{ glide:featured_image height=" {{height}}" }}" alt="{{ alt }}" class="img rounded-sm w-full h-full object-cover" />
+              {{ glide :src="segment_1:featured_image" width="228" height="224" }}
+                <img src="{{ glide:featured_image height=" {{height}}" }}" alt="{{ alt }}" class="img rounded-sm w-full h-full object-cover rounded-lg" />
+              {{ /glide }}
             {{ /entries }}
           </div>
           <div class="flex flex-col gap-2 px-4 h-1/5">
