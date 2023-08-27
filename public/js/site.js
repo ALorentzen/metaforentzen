@@ -7,57 +7,72 @@
   \******************************/
 /***/ (() => {
 
+// Get all the .js-image elements
 var images = document.querySelectorAll('.js-image');
 var previewer = document.querySelector('.js-previewer');
-var closeButtons = document.querySelectorAll('.js-close-btn');
-images.forEach(function (image) {
-  image.addEventListener('click', function (e) {
-    e.preventDefault();
-    if (previewer.classList.contains('hidden')) {
-      previewer.classList.toggle('hidden');
-    } else {
-      previewer.classList.toggle('flex');
-      closeButtons[0].focus();
-    }
-  });
-});
-closeButtons.forEach(function (closeBtn) {
-  closeBtn.addEventListener('click', function (e) {
-    if (!previewer.classList.contains('hidden')) {
-      previewer.classList.toggle('hidden');
-    } else {
-      previewer.classList.toggle('flex');
-    }
-  });
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      if (!previewer.classList.contains('hidden')) {
-        previewer.classList.toggle('hidden');
-      } else {
-        previewer.classList.toggle('flex');
-      }
-    }
+var previewerImage = document.querySelector('.js-previewer-image');
+var closeButtons = document.querySelector('.js-close-btn');
+var nextButton = document.querySelector('.js-next-btn');
+var prevButton = document.querySelector('.js-prev-btn');
+var navHeader = document.querySelector('.js-nav-header');
+var hamBtn = document.querySelector('.js-hamburger-button');
+var hamList = document.querySelector('.js-hamburger-list');
+var noScroll = document.querySelector('body');
+var currentImageIndex = 0; // Initialize the index
+
+// Attach click event listener to each .js-image element
+images.forEach(function (image, index) {
+  noScroll.classList.toggle('noScroll');
+  image.addEventListener('click', function () {
+    var imageUrl = image.querySelector('img').getAttribute('src');
+    previewerImage.src = imageUrl;
+    previewer.classList.remove('hidden');
+    currentImageIndex = index;
   });
 });
 
-// // Event listeners for slider buttons
-// if (nextButton !== null && prevButton !== null) {
-//     nextButton.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         navigateImages(1);
-//     });
+// Attach click event listener to the body
+document.body.addEventListener('click', function (e) {
+  if (e.target.classList.contains('js-close-btn')) {
+    previewer.classList.toggle('hidden');
+    noScroll.classList.toggle('noScroll');
+  }
+});
+closeButtons.addEventListener('click', function () {
+  previewer.classList.toggle('hidden');
+});
 
-//     prevButton.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         navigateImages(-1);
-//     });
-// }
+// Attach keydown event listener to the body for Esc key
+document.body.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    previewer.classList.add('hidden');
+  }
+});
 
-// // Function to navigate through images
-// function navigateImages(offset) {
-//     currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
-//     updateImagePreview(currentImageIndex);
-// }
+// Event listeners for next and previous buttons
+nextButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  navigateImages(1);
+});
+prevButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  navigateImages(-1);
+});
+
+// Navigate through the images based on the given offset
+function navigateImages(offset) {
+  currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
+  var currentImage = images[currentImageIndex];
+  var imageUrl = currentImage.querySelector('img').getAttribute('src');
+  previewerImage.src = imageUrl;
+}
+hamBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  hamList.classList.toggle('hamburgerActive');
+  navHeader.classList.toggle('active');
+  // no scroll on body when hamburger menu is open
+  noScroll.classList.toggle('noScroll');
+});
 
 /***/ }),
 

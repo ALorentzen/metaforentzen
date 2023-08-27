@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: "Archivo Narrow", system-ui, sans-serif !important;
+        font-family: Proxima Nova, system-ui, sans-serif;
+    }
+}

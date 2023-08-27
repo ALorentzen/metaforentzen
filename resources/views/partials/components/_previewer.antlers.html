@@ -1,0 +1,22 @@
+<div role="presentation" class="absolute top-0 left-0 right-0 bottom-0 w-full h-screen scale-150 overflow-hidden bg-black blur-lg opacity-90"></div>
+<div class="h-full overflow-hidden">
+   <section aria-label="Image preview" class="js-image relative flex items-center relative max-w-7xl h-full m-auto py-20">
+
+      <div class="flex flex-col gap-5 justify-center items-center max-w-6xl m-auto h-full py-8">
+         {{ glide :src="image" width="auto" height="auto" }}
+            <img loading="proactive" src="{{ url }}" alt="{{ alt }}" class="js-previewer-image h-full rounded-sm object-cover" />
+         {{ /glide }}
+         <div class="flex w-full items-center justify-between">
+            <button aria-label="Exit previewer" class="js-prev-btn flex justify-end place-items-end px-12 js-close-btn">
+               {{ svg src="arrowPrev" class="w-12 h-12" aria-hidden="true" }}
+            </button>
+            <button aria-label="Exit previewer" class="js-close-btn">
+               {{ svg src="cross" class="w-12 h-12" aria-hidden="true" }}
+            </button>
+            <button aria-label="Exit previewer" class="js-next-btn flex justify-end place-items-end px-12 js-close-btn">
+               {{ svg src="arrowNext" class="w-12 h-12" aria-hidden="true" }}
+            </button>
+         </div>
+      </div>
+   </section>
+</div>

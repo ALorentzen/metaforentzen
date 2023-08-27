@@ -1,45 +1,21 @@
 <!-- JS PREVIEWER -->
-<div role="dialog" aria-modal="true" aria-labelledby="Label" class="hidden fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden js-previewer">
-    <div role="presentation" class="absolute top-0 left-0 right-0 w-full h-screen bg-black blur-lg opacity-90"></div>
-    <div class="grid grid-cols-3 py-12 relative m-auto overscroll-none">
-        <button aria-label="Exit previewer" class="flex justify-end col-start-3 place-items-end px-12 js-close-btn">
-            {{ svg src="cross" class="w-12 h-12" aria-hidden="true" }}
-        </button>
-
-        <section aria-label="Image preview" class="flex items-center relative max-w-7xl h-max col-start-2 js-image">
-
-            <div class="flex justify-center items-center w-full h-max py-8">
-                <button aria-label="" class="w-10 h-10">
-                    {{ svg src="arrowPrev" aria-hidden="true" }}
-                </button>
-                {{ glide :src="featured_image" width="full" height="full" }}
-                    <img loading="proactive" src="{{ url }}" alt="{{ alt }}" class="h-auto rounded-sm object-cover" />
-                {{ /glide }}
-                <button aria-label="" class="w-10 h-10">
-                    {{ svg src="arrowNext" aria-hidden="true" }}
-                </button>
-            </div>
-
-        </section>
-    </div>
+<div role="dialog" aria-modal="true" aria-labelledby="Label" aria-label="previewer" class=" js-previewer hidden fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden">
+    {{ partial:partials/components/previewer }}
 </div>
-
 <!-- IMAGE CARD -->
-<div class="flex flex-col self-center w-full h-full sm:w-52 sm:h-80 bg-slate-800 rounded-md m-4 shadow-slate-700 shadow-sm hover:ease-in-out hover:shadow-lg duration-300 hover:shadow-cyan-700 transition-shadow js-image">
-    <div class="p-4 w-full h-auto grayscale hover:grayscale-0">
-        {{ glide :src="featured_image" width="auto" height="auto" }}
-            <img class="h-auto rounded-sm object-cover" loading="proactive" src="{{ url }}" alt="{{ alt }}" />
-        {{ /glide }}
-    </div>
-    <div class="w-full h-full sm:w-52 sm:h-2/5">
-        <ul class="flex flex-col items-center w-full h-full overflow-hidden">
-            <li class="text-sm uppercase">
-                {{ title | safe_truncate:13:... }}
-            </li>
-            <hr class="border-2-white w-1/2 m-4" aria-hidden="true" />
-            <li class="bottom-0 h-full flex justify-end items-end text-xs">
-                {{ date }}
-            </li>
-        </ul>
+<div class="flex relative">
+    <div class="js-image h-full flex flex-col self-center border-none shadow-none rounded-md hover:rotate-3 hover:bg-themePrimary-400  hover:shadow-slate-800 hover:ease-in-out hover:shadow-lg duration-300 hover:shadow-black hover:transition-transform transition-shadow">
+        <div class="p-4 w-full h-80 grayscale hover:grayscale-0">
+            {{ glide :src="image" width="auto" height="full" }}
+                <img loading="proactive" src="{{ url }}" alt="{{ alt }}" class="w-auto h-max lg:w-full lg:h-full rounded-sm object-cover" />
+            {{ /glide }}
+        </div>
+        <div class="w-full h-full sm:w-52 sm:h-2/5">
+            <ul class="flex flex-col items-center w-full h-full overflow-hidden">
+                <li class="text-sm uppercase">
+                    {{ title | safe_truncate:13:... }}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

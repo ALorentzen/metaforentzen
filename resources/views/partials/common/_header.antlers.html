@@ -1,21 +1,48 @@
-<header class="top-0 z-10 fixed flex-row w-full lg:max-w-6xl m-auto lg:left-0 lg:right-0 h-30 bg-themePrimary-400 shadow-black shadow-md rounded-b-2xl">
-  <nav aria-label="Main Navigation" class="relative w-full h-20 grid grid-cols-2 bg-theme-secondary">
-    <div class="col-start-1 col-end-2 flex flex-row w-full justify-start items-center">
-      <a href="/" aria-label="Back to home" class="flex items-center">
-        <img src="{{ logo:site_logo }}" alt="{{ alt }}" class="flex justify-center w-20 h-auto" />
-        <h1 class="uppercase text-2xl font-semibold">Metaforentzen</h1>
-      </a>
-    </div>
-    <div class="col-start-2 col-end-3 flex flex-row items-center justify-end">
-      {{ nav:header }}
-        {{ if icon == !no_results }}
-          <div class="{{ if !last }}m-0 {{ else }} mx-4{{ /if }}">
-            <a aria-label="Navigate to {{ title }}" href="{{ url }}">
-              {{ svg aria-hidden="true" src="{{icon}}" class="w-12 h-12 hover:fill-white" }}
-            </a>
-          </div>
-        {{ /if }}
-      {{ /nav:header }}
-    </div>
-  </nav>
-</header>
+  <header aria-label="Navigation Header" class="js-nav-header top-0 z-[40] fixed w-full lg:max-w-6xl m-auto lg:left-0 lg:right-0 bg-themePrimary-400 lg:rounded-b-lg">
+    <nav aria-label="Main Navigation" class="grid grid-cols-3 bg-theme-secondary">
+      <div class="w-auto h-20 col-span-2 flex flex-row w-full justify-start items-center">
+        <a href="/" aria-label="Back to home" class="flex items-center h-20">
+          {{ glide :src="logo:site_logo" width="full" height="full" crop="crop_focal" }}
+            <img src="{{ url }}" alt="{{ alt }}" class="flex justify-center h-20" />
+          {{ /glide }}
+          <h1 class="w-full uppercase text-sm lg:text-2xl font-semibold">
+            {{ get_content from="/" }}
+              {{ title }}
+            {{ /get_content }}
+          </h1>
+        </a>
+      </div>
+      {{# Desktop Navigation #}}
+      <div class="flex flex-col w-auto h-full justify-center items-center">
+        <button class="js-hamburger-button lg:hidden h-full">
+          {{ svg src="hamburger" alt="Hamburger Menu" class="w-12 h-12" }}
+        </button>
+        <div class="lg:w-full col-start-2 col-end-3 hidden lg:flex flex-row items-center justify-end px-4">
+          {{ nav:header }}
+            {{ if icon != no_results }}
+              <div class="">
+                <a aria-label="Navigate to {{ title }}" href="{{ url }}">
+                  {{ svg aria-hidden="true" src="{{icon}}" class="w-10 h-10 lg:w-12 lg:h-12 hover:fill-white" }}
+                </a>
+              </div>
+            {{ /if }}
+          {{ /nav:header }}
+        </div>
+      </div>
+      {{# Desktop Navigation - END #}}
+    </nav>
+  </header>
+  {{# Mobile Navigation #}}
+  <ul class="js-hamburger-list col-span-3 text-white text-lg font-medium z-[1]">
+    {{ nav:header }}
+      <li class="text-center flex items-center w-full">
+        <a aria-label="Navigate to {{ title }}" href="{{ url }}" class="flex flex-row-reverse items-center justify-start m-auto gap-5">
+          <h2 class="w-full text-start">{{ title }}</h2>
+          {{ if icon != no_results }}
+            {{ svg aria-hidden="true" src="{{icon}}" class="w-max h-10 lg:w-12 lg:h-12 hover:fill-white" }}
+          {{ /if }}
+        </a>
+      </li>
+    {{ /nav:header }}
+  </ul>
+  {{# Mobile Navigation - END #}}

@@ -1,0 +1,55 @@
+.js-hamburger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--themeSecondary-800);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+}
+
+.js-hamburger-list li {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.15s ease-in-out 0.3s;
+}
+
+.hamburgerActive {
+    overflow: hidden;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    max-height: 100vh; /* assuming it won't be taller than the viewport */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    padding: 100px 16px;
+}
+
+.hamburgerActive li {
+    opacity: 1;
+}
+
+.js-nav-header {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-bottom-left-radius 0.3s ease-in-out,
+        border-bottom-right-radius 0.3s ease-in-out;
+}
+
+.active {
+    box-shadow: none;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    transition: border-bottom-left-radius 0.3s ease-in-out,
+        border-bottom-right-radius 0.3s ease-in-out;
+}

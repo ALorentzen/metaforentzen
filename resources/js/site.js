@@ -1,63 +1,74 @@
+// Get all the .js-image elements
 const images = document.querySelectorAll('.js-image');
 const previewer = document.querySelector('.js-previewer');
-const closeButtons = document.querySelectorAll('.js-close-btn');
+const previewerImage = document.querySelector('.js-previewer-image');
+const closeButtons = document.querySelector('.js-close-btn');
+const nextButton = document.querySelector('.js-next-btn');
+const prevButton = document.querySelector('.js-prev-btn');
 
-images.forEach(image => {
-    image.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (previewer.classList.contains('hidden')) {
-            previewer.classList.toggle('hidden')
-        } else {
-            previewer.classList.toggle('flex');
-            closeButtons[0].focus();
-        }
-    });
-});
+const navHeader = document.querySelector('.js-nav-header');
+const hamBtn = document.querySelector('.js-hamburger-button');
+const hamList = document.querySelector('.js-hamburger-list');
+const noScroll = document.querySelector('body');
 
+let currentImageIndex = 0; // Initialize the index
 
-
-closeButtons.forEach(closeBtn => {
-
-    closeBtn.addEventListener('click', (e) => {
-        if (!previewer.classList.contains('hidden')) {
-            previewer.classList.toggle('hidden');
-        } else {
-            previewer.classList.toggle('flex');
-        }
-    });
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            if (!previewer.classList.contains('hidden')) {
-                previewer.classList.toggle('hidden');
-            } else {
-                previewer.classList.toggle('flex');
-            }
-        }
-    });
+// Attach click event listener to each .js-image element
+images.forEach((image, index) => {
+    noScroll.classList.toggle('noScroll');
     
+    image.addEventListener('click', () => {
+        const imageUrl = image.querySelector('img').getAttribute('src');
+        previewerImage.src = imageUrl;
+        previewer.classList.remove('hidden');
+        currentImageIndex = index; 
+    });
+});
+
+// Attach click event listener to the body
+document.body.addEventListener('click', (e) => {
+    
+    if (e.target.classList.contains('js-close-btn')) {
+        previewer.classList.toggle('hidden');
+        noScroll.classList.toggle('noScroll');
+    }
+});
+closeButtons.addEventListener('click', () => {
+    previewer.classList.toggle('hidden')
+});
+
+// Attach keydown event listener to the body for Esc key
+document.body.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        previewer.classList.add('hidden');
+    }
 });
 
 
+// Event listeners for next and previous buttons
+nextButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateImages(1);
+});
 
+prevButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateImages(-1);
+});
 
+// Navigate through the images based on the given offset
+function navigateImages(offset) {
+    currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
+    const currentImage = images[currentImageIndex];
+    const imageUrl = currentImage.querySelector('img').getAttribute('src');
+    previewerImage.src = imageUrl;
+}
 
+hamBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
-// // Event listeners for slider buttons
-// if (nextButton !== null && prevButton !== null) {
-//     nextButton.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         navigateImages(1);
-//     });
-
-//     prevButton.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         navigateImages(-1);
-//     });
-// }
-
-// // Function to navigate through images
-// function navigateImages(offset) {
-//     currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
-//     updateImagePreview(currentImageIndex);
-// }
+    hamList.classList.toggle('hamburgerActive');
+    navHeader.classList.toggle('active');
+    // no scroll on body when hamburger menu is open
+    noScroll.classList.toggle('noScroll');
+});

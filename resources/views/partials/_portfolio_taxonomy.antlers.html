@@ -1,19 +1,16 @@
-<h1 class="text-2xl text-white font-semibold bg-gradient-to-r from-pink-400 ... rounded-2xl rounded-tl-sm px-4 py-2">{{ title }}</h1>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 place-content-center">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-2 place-content-center rounded-lg overflow-visible">
   {{ taxonomy:portfolio }}
-    <div class="{{ last_segment === slug ? 'bg-themePrimary-400 hover:bg-violet-400' : 'hover:bg-pink-400' }} transition-all ease-in-out self-center items-center w-full h-80 rounded-md shadow-sm shadow-slate-700 ">
-      <a class="w-full h-80" href="{{ url }}" class="w-full text-center">
-        <div class="w-full h-80 grayscale hover:grayscale-0">
-          <div class="w-full h-4/5 p-4 grayscale hover:grayscale-0">
-            {{ entries }}
-              {{ glide :src="segment_1:featured_image" width="228" height="224" }}
-                <img src="{{ glide:featured_image height=" {{height}}" }}" alt="{{ alt }}" class="img rounded-sm w-full h-full object-cover rounded-lg" />
-              {{ /glide }}
-            {{ /entries }}
+    <div aria-label="taxonomy tags" class="group">
+      <a href="{{ url }}" class="w-max h-80 text-center">
+        <div class="flex flex-col lg:flex-col-reverse gap-2 w-full h-full justify-between lg:h-80 ">
+          <div class="h-full flex flex-col p-4  rounded-lg overflow-x-hidden">
+            {{ glide :src="featured_image" width="full" height="full" }}
+              <img src="{{ url }}" alt="{{ alt }}" fit="crop_focal"
+                class="{{ last_segment === slug ? 'overflow-x-hidden box-content shadow-bottomViolet' : 'grayscale hover:grayscale-0 shadow-none group-hover:shadow-bottomPink' }} img border-none transition-all ease-in-out items-center w-auto h-full rounded-md hover:translate-x-2  object-contain rounded-lg" />
+            {{ /glide }}
           </div>
-          <div class="flex flex-col gap-2 px-4 h-1/5">
-            <span class="text-lg text-center uppercase font-medium">{{ title | safe_truncate:13:... }}</span>
+          <div class="flex flex-col gap-2 px-4 h-auto justify-end shadow-2xl">
+            <span class="text-lg text-center uppercase font-medium ">{{ title | safe_truncate:13:... }}</span>
           </div>
         </div>
       </a>
