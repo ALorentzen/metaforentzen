@@ -16,3 +16,4 @@ preview_targets:
     url: '{permalink}'
 structure:
   root: false
+  max_depth: 2
