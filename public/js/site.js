@@ -8,70 +8,79 @@
 /***/ (() => {
 
 // Get all the .js-image elements
-var images = document.querySelectorAll('.js-image');
+var images = document.querySelectorAll('.js-individual-image');
 var previewer = document.querySelector('.js-previewer');
 var previewerImage = document.querySelector('.js-previewer-image');
-var closeButtons = document.querySelector('.js-close-btn');
+var closeButtons = document.querySelectorAll('.js-close-btn');
 var nextButton = document.querySelector('.js-next-btn');
 var prevButton = document.querySelector('.js-prev-btn');
 var navHeader = document.querySelector('.js-nav-header');
 var hamBtn = document.querySelector('.js-hamburger-button');
 var hamList = document.querySelector('.js-hamburger-list');
 var noScroll = document.querySelector('body');
-var currentImageIndex = 0; // Initialize the index
 
-// Attach click event listener to each .js-image element
-images.forEach(function (image, index) {
-  noScroll.classList.toggle('noScroll');
-  image.addEventListener('click', function () {
-    var imageUrl = image.querySelector('img').getAttribute('src');
+// Array of indices
+var imageIndices = Array.from(images).map(function (_, index) {
+  return index;
+});
+
+// Initialize the index
+var currentImageIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to show image at the given index
+  function showImage(imageUrl) {
     previewerImage.src = imageUrl;
     previewer.classList.remove('hidden');
-    currentImageIndex = index;
+    noScroll.classList.add('noScroll');
+    navHeader.classList.toggle('hidden');
+  }
+  images.forEach(function (imageCard, index) {
+    imageCard.addEventListener('click', function () {
+      var imageUrl = imageCard.querySelector('img').getAttribute('src');
+      showImage(imageUrl);
+    });
   });
-});
 
-// Attach click event listener to the body
-document.body.addEventListener('click', function (e) {
-  if (e.target.classList.contains('js-close-btn')) {
-    previewer.classList.toggle('hidden');
+  // Attach keydown event listener to the body for Esc key
+  document.body.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      previewer.classList.add('hidden');
+      noScroll.classList.remove('noScroll');
+      navHeader.classList.toggle('hidden');
+    }
+  });
+  closeButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      previewer.classList.add('hidden');
+      noScroll.classList.remove('noScroll');
+      navHeader.classList.toggle('hidden');
+    });
+  });
+
+  // Event listener for the "Next" button
+  if (nextButton) {
+    nextButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      var imageUrl = images[currentImageIndex].querySelector('img').getAttribute('src');
+      showImage(imageUrl);
+    });
+  }
+
+  // Event listener for the "Previous" button
+  if (prevButton) {
+    prevButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      var imageUrl = images[currentImageIndex].querySelector('img').getAttribute('src');
+      showImage(imageUrl);
+    });
+  }
+  hamBtn.addEventListener('click', function () {
+    hamList.classList.toggle('hamburgerActive');
+    navHeader.classList.toggle('active');
     noScroll.classList.toggle('noScroll');
-  }
-});
-closeButtons.addEventListener('click', function () {
-  previewer.classList.toggle('hidden');
-});
-
-// Attach keydown event listener to the body for Esc key
-document.body.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    previewer.classList.add('hidden');
-  }
-});
-
-// Event listeners for next and previous buttons
-nextButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  navigateImages(1);
-});
-prevButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  navigateImages(-1);
-});
-
-// Navigate through the images based on the given offset
-function navigateImages(offset) {
-  currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
-  var currentImage = images[currentImageIndex];
-  var imageUrl = currentImage.querySelector('img').getAttribute('src');
-  previewerImage.src = imageUrl;
-}
-hamBtn.addEventListener('click', function (e) {
-  e.preventDefault();
-  hamList.classList.toggle('hamburgerActive');
-  navHeader.classList.toggle('active');
-  // no scroll on body when hamburger menu is open
-  noScroll.classList.toggle('noScroll');
+  });
 });
 
 /***/ }),

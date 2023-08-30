@@ -74,3 +74,22 @@ body {
 .noScroll {
     overflow: hidden;
 }
+
+.container .arrow-right {
+    z-index: 10;
+}
+
+@keyframes slideRight {
+    0%,
+    100% {
+        transform: translateX(0rem);
+    }
+    50% {
+        transform: translateX(1rem);
+    }
+}
+
+.container:hover .arrow-right {
+    cursor: pointer;
+    animation: slideRight 0.8s infinite; /* 0.8s because 0.4s (your transition time) multiplied by 2 (back and forth) */
+}

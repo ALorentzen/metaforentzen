@@ -1,9 +1,0 @@
-    <ul role="list" class="js-slides-container flex overflow-hidden h-80 min-w-full">
-        {{ collection:portfolio sort="random" }}
-            <li role="listitem" class="w-max h-80 slide list-none">
-                {{ glide:image width="auto" height="auto" fit="crop_focal" }}
-                    <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy" class="w-60 h-full object-cover hover:ease-in-out transition-shadow ease-in-out hover:shadow-cyan-400 rounded-2xl">
-                {{ /glide:image }}
-            </li>
-        {{ /collection:portfolio }}
-    </ul>

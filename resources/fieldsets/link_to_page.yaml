@@ -1,0 +1,17 @@
+title: 'Link to page'
+fields:
+  -
+    handle: link_to_page
+    field:
+      max_items: 1
+      mode: select
+      create: true
+      collections:
+        - pages
+      display: 'Link to page'
+      type: entries
+      icon: entries
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false

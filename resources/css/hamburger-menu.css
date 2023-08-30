@@ -7,7 +7,7 @@
     max-height: 0;
     opacity: 0;
     transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -16,11 +16,12 @@
 }
 
 .js-hamburger-list li {
-    display: block;
     list-style: none;
     padding: 0;
+    opacity: 0;
     margin: 0;
-    transition: opacity 0.15s ease-in-out 0.3s;
+    transform: translateY(-200px);
+    transition: opacity 0.15s ease-in-out 0.3s, transform 0.3s ease-in-out;
 }
 
 .hamburgerActive {
@@ -31,10 +32,13 @@
     opacity: 1;
     transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
     padding: 100px 16px;
+    position: fixed;
 }
 
 .hamburgerActive li {
     opacity: 1;
+    transform: translateY(80px);
+    transition: opacity 0.15s ease-in-out 0.3s, transform 0.3s ease-in-out;
 }
 
 .js-nav-header {
