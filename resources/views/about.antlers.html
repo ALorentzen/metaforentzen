@@ -1,46 +1,33 @@
-<div class="flex flex-col justify-center items-center w-full h-full my-36">
-    <div class="w-3/5">
+<div class="grid lg:grid-cols-3 justify-center items-center w-full h-full py-20">
+    <div class="col-start-1 col-end-3 px-4">
         {{ content }}
-            {{ if type == "text" }}
-                {{ text }}
-            {{ elseif type == "image_box" }}
+    </div>
+    <div aria-label="right column " class="col-start-3 w-full bg-themeSecondary-600 rounded-xl  shadow-lg shadow-black ">
+        {{ if !no_results }}
+            {{ personalia }}
+                {{ glide :src="profile_image" }}
+                    <img src="{{ url }}" class="p-2 w-full h-full rounded-2xl grayscale">
+                    <span class="text-xs">{{ description }}</span>
+                {{ /glide }}
+            {{ /personalia }}
+        {{ /if }}
+        <div class="flex flex-col w-full p-2">
+            {{ personalia }}
+                <ul class="overflow-hidden flex flex-col rounded-md h-52 w-full h-full bg-themeSecondary-800 px-2 leading-loose text-white text-base lg:text-lg">
+                    <li>{{ name }}</li>
+                    <li>{{ date_of_birth }} ({{ date_of_birth | years_ago }} years)</li>
+                    <li>{{ occupation }}</li>
+                    <li>{{ location }}</li>
+            {{ /personalia }}
+            <hr class="border-b-2 border-themePrimary-400 blur-xs drop-shadow-xl shadow-white">
             {{ if !no_results }}
-                <div class="my-4">
-                    {{ image }}
-                        <img src="{{ glide:url width='{{ width }}' height='{{ height }}' }}" alt='{{ alt }}' class="w-full h-full rounded-md">
-                        <span class="text-xs">{{ description }}</span>
-                    {{ /image }}
-                </div>
+                {{ personalia }}
+                    <div class="flex justify-start items-center w-full h-full gap-5 py-2">
+                        <a aria-label="Link to email" href="mailto:{{ email }}">{{ svg src="mail" class="w-12 h-12 hover:pointer" }}</a>
+                        <a aria-label="Link to instagram" href="{{ some }}">{{ svg src="instagram" class="w-10 h-10 hover:pointer" }}</a>
+                    </div>
+                {{ /personalia }}
             {{ /if }}
-            {{ elseif type == "personalia" }}
-            <div class="box-border overflow-hidden flex flex-row bg-cyan-900 rounded-md shadow-lg shadow-cyan-700 h-52">
-                <ul class="w-1/2 h-full p-4 space-y-4 leading-loose text-white">
-                    <li class="px-2">
-                        <span class="text-xs mx-2 font-semibold">Name:</span>
-                        <span class="text-xs">{{ name }}</span>
-                    </li>
-                    <li class="px-2">
-                        <span class="text-xs mx-2 font-semibold">Year of birth:</span>
-                        <span class="text-xs">{{ yob }}, ({{ yob | years_ago  }} years)</span></li>
-                    <li class="px-2">
-                        <span class="text-xs mx-2 font-semibold">Occupation:</span>
-                        <span class="text-xs">{{ occupation }}</span>
-                    </li>
-                    <li class="px-2">
-                        <span class="text-xs mx-2 font-semibold">Location:</span>
-                        <span class="text-xs">{{ location }}</span>
-                    </li>
-                </ul>
-                <ul class="flex justify-center items-center p-4 w-1/2 h-full bg-cyan-900 border-l-2 border-cyan-800">
-                    <li class="flex flex-row px-4 ">
-                        <a href="mailto:{{ email }}">{{ svg src="mail" class="w-12 h-12 hover:pointer" }}</a>
-                   </li>
-                   <li class="flex px-4">
-                        <a href="{{ instagram }}">{{ svg src="instagram" class="w-10 h-10 hover:pointer" }}</a>
-                    </li>
-                </ul>
-            </div>
-            {{ /if }}
-        {{ /content }}
+        </div>
     </div>
 </div>

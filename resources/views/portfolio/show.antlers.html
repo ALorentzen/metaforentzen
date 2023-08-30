@@ -1,8 +1,15 @@
 <div class="flex flex-col gap-10 pt-20 lg:px-4">
   {{ partial:partials/portfolio_taxonomy }}
-  <div aria-label="image container" class="flex flex-col gap-5 rounded-lg pb-20 bg-themeSecondary-600  shadow-2xl shadow-themePrimary-900">
-    <h1 class="text-center text-2xl text-white antialiased font-semibold rounded-2xl rounded-tl-sm py-12 uppercase">{{ title }}</h1>
-    <div class="js-image grid grid-cols-2 lg:grid-cols-4 place-content-start m-auto gap-5">
+  {{ if !no_results }}
+    {{ collection:portfolio from="last_segment" taxonomy:portfolio="{slug}" sort="{src:image}" limit="1" }}
+      {{ partial:partials/previewer }}
+    {{ /collection:portfolio }}
+  {{ /if }}
+  <div aria-label="image container" class="flex flex-col gap-5 rounded-lg pb-20 bg-themeSecondary-600 shadow-2xl shadow-themePrimary-900">
+    <h1 class="text-center text-2xl text-white antialiased font-semibold rounded-2xl rounded-tl-sm py-12 uppercase">
+      {{ title }}
+    </h1>
+    <div class="js-image grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-content-start m-auto gap-5">
       {{ collection:portfolio from="last_segment" taxonomy:portfolio="{slug}" sort="title:asc" }}
         {{ if !no_results }}
           {{ partial:partials/image_card }}
