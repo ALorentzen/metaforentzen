@@ -10,6 +10,9 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@babel/core": "^7.22.20",
+        "@babel/preset-env": "^7.22.20",
+        "@babel/preset-react": "^7.22.15",
         "@tailwindcss/typography": "^0.5.1",
         "autoprefixer": "^10.4.14",
         "cross-env": "^7.0",
@@ -23,6 +26,8 @@
     },
     "dependencies": {
         "path-browserify": "^1.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "vue": "^3.2.45"
     },
     "name": "metaforentzen",
