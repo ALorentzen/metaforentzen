@@ -5,7 +5,7 @@
         <div class="flex flex-col lg:flex-col-reverse gap-2 w-full h-full justify-between lg:h-80 ">
           <div class="h-full flex flex-col p-4  rounded-lg overflow-x-hidden">
             {{ glide :src="featured_image" width="full" height="full" }}
-              <img src="{{ url }}" alt="{{ alt }}" fit="crop_focal" class="{{ last_segment === slug ? 'overflow-x-hidden box-content shadow-bottomViolet' : 'grayscale hover:grayscale-0 shadow-none group-hover:shadow-bottomPink' }} img border-none transition-all ease-in-out items-center w-auto h-full rounded-md hover:translate-x-2  object-contain rounded-lg" />
+              <img src="{{ url }}" alt="{{ alt }}" fit="crop_focal" class="{{ last_segment === slug ? 'overflow-x-hidden box-content shadow-bottomViolet' : 'grayscale hover:grayscale-0 shadow-none group-hover:shadow-bottomPink' }} img border-none transition-all ease-in-out items-center w-auto h-full hover:translate-x-2  object-contain rounded-lg" />
             {{ /glide }}
           </div>
           <div class="flex flex-col gap-2 px-4 h-auto justify-end shadow-2xl">
