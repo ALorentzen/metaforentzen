@@ -1,8 +1,7 @@
 // Get all the .js-image elements
 const images = document.querySelectorAll('.js-individual-image');
-
-const previewer = document.querySelector('.js-previewer');
-const previewerImage = document.querySelector('.js-previewer-image');
+const imageViewer = document.querySelector('.js-image-viewer');
+const viewerImage = document.querySelector('.js-viewer-image');
 const closeButtons = document.querySelectorAll('.js-close-btn');
 const nextButton = document.querySelector('.js-next-btn');
 const prevButton = document.querySelector('.js-prev-btn');
@@ -21,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to show image at the given index
     function showImage(imageUrl) {
-        previewerImage.src = imageUrl;
-        previewer.classList.remove('hidden');
+        viewerImage.src = imageUrl;
+        imageViewer.classList.remove('hidden');
         noScroll.classList.add('noScroll');
         navHeader.classList.toggle('hidden');
     }
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Attach keydown event listener to the body for Esc key
     document.body.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            previewer.classList.add('hidden');
+            imageViewer.classList.add('hidden');
             noScroll.classList.remove('noScroll');
             navHeader.classList.toggle('hidden');
         }
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     closeButtons.forEach(button => {
         button.addEventListener('click', () => {
-            previewer.classList.add('hidden');
+            imageViewer.classList.add('hidden');
             noScroll.classList.remove('noScroll');
             navHeader.classList.toggle('hidden');
 

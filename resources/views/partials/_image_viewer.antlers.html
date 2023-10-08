@@ -1,16 +1,16 @@
-<div role="dialog" aria-modal="true" aria-labelledby="Label" aria-label="previewer" class="js-previewer hidden fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden">
+<div role="dialog" aria-modal="true" aria-labelledby="Label" aria-label="image_viewer" class="js-image-viewer hidden fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden">
    <div role="presentation" class="absolute top-0 left-0 right-0 bottom-0 w-full h-screen scale-150 overflow-hidden bg-transparent-[#ffaacc] opacity-100 backdrop-blur-md ease-in-out transition"></div>
    <div class="h-full overflow-hidden">
       <section aria-label="Image preview" class="js-image relative flex flex-col items-center justify-center max-w-7xl h-full m-auto py-20">
          <div class="flex flex-col gap-5 justify-center items-center max-w-6xl m-auto h-full">
             {{ glide :src="image" width="auto" height="auto" }}
-               <img loading="proactive" src="{{ url }}" alt="{{ image:alt }}" class="js-previewer-image max-h-[40rem] rounded-sm object-cover my-auto" />
+               <img loading="proactive" src="{{ url }}" alt="{{ image:alt }}" class="js-viewer-image max-h-[40rem] rounded-sm object-cover my-auto" />
             {{ /glide }}
             <div class="flex max-w-xs items-center justify-between py-4">
                <button aria-label="Previous button" class="js-prev-btn flex justify-end place-items-end px-12 js-close-btn">
                   {{ svg src="arrowPrev" class="w-12 h-12" aria-hidden="true" }}
                </button>
-               <button aria-label="Exit previewer" class="js-close-btn">
+               <button aria-label="Exit image_viewer" class="js-close-btn">
                   {{ svg src="cross" class="w-12 h-12" aria-hidden="false" }}
                </button>
                <button aria-label="Next button" class="js-next-btn flex justify-end place-items-end px-12 js-close-btn">

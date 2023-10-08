@@ -2,7 +2,7 @@
   {{ partial:partials/portfolio_taxonomy }}
   {{ if !no_results }}
     {{ collection:portfolio from="last_segment" taxonomy:portfolio="{slug}" sort="{src:image}" limit="1" }}
-      {{ partial:partials/previewer }}
+      {{ partial:partials/image_viewer }}
     {{ /collection:portfolio }}
   {{ /if }}
   <div aria-label="image container" class="flex flex-col gap-5 rounded-lg pb-20 bg-themeSecondary-600 shadow-2xl shadow-themePrimary-900">
