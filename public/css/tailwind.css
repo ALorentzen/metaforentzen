@@ -1072,11 +1072,6 @@ html {
     border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.bg-pink-400 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(244 114 182 / var(--tw-bg-opacity));
-}
-
 .bg-themePrimary-400 {
     background-color: var(--themePrimary-400);
 }
