@@ -48,6 +48,9 @@ module.exports = {
         'themeTertiary-700': '#be185d',
         'themeTertiary-800': '#9d174d',
       },
+      fontFamily: {
+        'sofia': ['SofiaSansCondensed', 'system-ui'],
+      },
       fontSize: {
         'xs': '14px',
         'sm': '16px',
