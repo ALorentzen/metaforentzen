@@ -4,7 +4,7 @@ blueprint: portfolio
 title: Characters
 description: 'A bunch of characters I have been creating over the years'
 updated_by: 733e613e-5f4f-4943-b04a-83cf5f969268
-updated_at: 1671787058
+updated_at: 1697465699
 featured_image: 'portfolio/characters/kongen på haugen-min.webp'
 media:
   -
@@ -315,4 +315,5 @@ media:
     description: 'Driking on the job'
     image:
       - portfolio/characters/skipper2.webp
+image: portfolio/characters/tantedeng-1697465665.webp
 ---
